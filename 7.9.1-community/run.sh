@@ -28,4 +28,5 @@ exec java -jar lib/sonar-application-$SONAR_VERSION.jar \
   -Dsonar.jdbc.url="$SONARQUBE_JDBC_URL" \
   -Dsonar.web.javaAdditionalOpts="$SONARQUBE_WEB_JVM_OPTS -Djava.security.egd=file:/dev/./urandom" \
   "${sq_opts[@]}" \
-  "$@"
+  "$@" &
+exec tail -F ./logs/es.log
